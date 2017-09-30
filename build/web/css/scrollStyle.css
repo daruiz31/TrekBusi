@@ -1,0 +1,45 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5/04/2016, 07:44:33 PM
+    Author     : Diego RM
+*/
+
+/*###############################################################
+#                                                               #
+#                     scroll                                  RM#
+#                                                               #
+###############################################################*/
+
+::-webkit-scrollbar{
+    width: 10px;
+    background: #dbe8ec;
+}
+-webkit-scrollbar-button{
+    width:8px;
+    height: 5px;
+}
+::-webkit-scrollbar-track{
+    background: #26447f;
+    border:thin solid #1a1f25;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background: -webkit-linear-gradient(top, white, white);
+
+
+    border:thin solid #232c34;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+
+    /* Pseudo-clase */
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(77,161,112,.6);
+    }
+
+

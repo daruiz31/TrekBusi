@@ -1,0 +1,5 @@
+$(function(){
+	 	$(".image-products").slidesjs({
+        		
+      		});
+ });

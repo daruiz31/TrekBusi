@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5e54aba9-6788-4af9-9c72-368906f82322">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="estado" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     solicitudproducto.`idSolicitud` AS solicitudproducto_idSolicitud,
+     solicitudproducto.`usuarios_idUsuarios` AS solicitudproducto_usuarios_idUsuarios,
+     solicitudproducto.`presupuestoDis` AS solicitudproducto_presupuestoDis,
+     solicitudproducto.`estado` AS solicitudproducto_estado,
+     solicitudproducto.`fechaPedido` AS solicitudproducto_fechaPedido,
+     detallesolicitud.`idDetalleSolicitud` AS detallesolicitud_idDetalleSolicitud,
+     detallesolicitud.`producto_idProducto` AS detallesolicitud_producto_idProducto,
+     detallesolicitud.`solicitud_idSolicitud` AS detallesolicitud_solicitud_idSolicitud,
+     producto.`idProducto` AS producto_idProducto,
+     producto.`tipo_producto_idTipoProducto` AS producto_tipo_producto_idTipoProducto,
+     producto.`nombre` AS producto_nombre,
+     producto.`descripcion` AS producto_descripcion,
+     producto.`referencia` AS producto_referencia,
+     producto.`marca` AS producto_marca,
+     producto.`valorUnitario` AS producto_valorUnitario,
+     usuarios.`idUsuarios` AS usuarios_idUsuarios,
+     usuarios.`correos` AS usuarios_correos,
+     usuarios.`nombre_razon` AS usuarios_nombre_razon,
+     usuarios.`apellido1` AS usuarios_apellido1,
+     usuarios.`ciudad` AS usuarios_ciudad,
+     usuarios.`direccion` AS usuarios_direccion,
+     usuarios.`telefonos` AS usuarios_telefonos,
+     tipo_producto.`idTipo_Producto` AS tipo_producto_idTipo_Producto,
+     tipo_producto.`nombreT` AS tipo_producto_nombreT,
+     solicitudproducto.`nombre` AS solicitudproducto_nombre,
+     solicitudproducto.`descripcion` AS solicitudproducto_descripcion
+FROM
+     `solicitudproducto` solicitudproducto INNER JOIN `detallesolicitud` detallesolicitud ON solicitudproducto.`idSolicitud` = detallesolicitud.`solicitud_idSolicitud`
+     INNER JOIN `producto` producto ON detallesolicitud.`producto_idProducto` = producto.`idProducto`
+     INNER JOIN `tipo_producto` tipo_producto ON producto.`tipo_producto_idTipoProducto` = tipo_producto.`idTipo_Producto`
+     INNER JOIN `usuarios` usuarios ON solicitudproducto.`usuarios_idUsuarios` = usuarios.`idUsuarios`
+WHERE
+     solicitudproducto.`estado` = $P{estado}]]>
+	</queryString>
+	<field name="solicitudproducto_idSolicitud" class="java.lang.Integer"/>
+	<field name="solicitudproducto_usuarios_idUsuarios" class="java.lang.Integer"/>
+	<field name="solicitudproducto_presupuestoDis" class="java.lang.Float"/>
+	<field name="solicitudproducto_estado" class="java.lang.String"/>
+	<field name="solicitudproducto_fechaPedido" class="java.lang.String"/>
+	<field name="detallesolicitud_idDetalleSolicitud" class="java.lang.Integer"/>
+	<field name="detallesolicitud_producto_idProducto" class="java.lang.Integer"/>
+	<field name="detallesolicitud_solicitud_idSolicitud" class="java.lang.Integer"/>
+	<field name="producto_idProducto" class="java.lang.Integer"/>
+	<field name="producto_tipo_producto_idTipoProducto" class="java.lang.Integer"/>
+	<field name="producto_nombre" class="java.lang.String"/>
+	<field name="producto_descripcion" class="java.lang.String"/>
+	<field name="producto_referencia" class="java.lang.String"/>
+	<field name="producto_marca" class="java.lang.String"/>
+	<field name="producto_valorUnitario" class="java.lang.Float"/>
+	<field name="usuarios_idUsuarios" class="java.lang.Integer"/>
+	<field name="usuarios_correos" class="java.lang.String"/>
+	<field name="usuarios_nombre_razon" class="java.lang.String"/>
+	<field name="usuarios_apellido1" class="java.lang.String"/>
+	<field name="usuarios_ciudad" class="java.lang.String"/>
+	<field name="usuarios_direccion" class="java.lang.String"/>
+	<field name="usuarios_telefonos" class="java.lang.String"/>
+	<field name="tipo_producto_idTipo_Producto" class="java.lang.Integer"/>
+	<field name="tipo_producto_nombreT" class="java.lang.String"/>
+	<field name="solicitudproducto_nombre" class="java.lang.String"/>
+	<field name="solicitudproducto_descripcion" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="3c110d66-c399-4d40-a26c-f429e294bdb6"/>
+				<staticText>
+					<reportElement x="20" y="20" width="182" height="43" forecolor="#FFFFFF" uuid="15f9d512-f109-489d-9365-b89ca1c67ef5"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PEDIDOS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="405" y="53" width="180" height="20" forecolor="#FFFFFF" uuid="0f0d9cb8-4bac-4be9-8289-af55b874b397"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Solicitud de productos]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="117">
+			<staticText>
+				<reportElement x="0" y="24" width="60" height="20" uuid="be5fdc18-061c-4ca2-9157-990995a48a13"/>
+				<text><![CDATA[Bogotá D.C]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="60" y="24" width="100" height="20" uuid="c8f80a85-3604-499f-9f0d-22b34b1a137c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="44" width="41" height="20" uuid="44fda7cc-1196-4be4-a467-bab512d41def"/>
+				<text><![CDATA[Señores:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="44" width="80" height="20" uuid="025055ef-3347-44a1-9a1e-9bdc3eccd7a9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[INGEAR S.A]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="101" y="82" width="189" height="20" uuid="17c8feaa-8311-44ba-8f69-70ece18a1257"/>
+				<text><![CDATA[las siguientes solicitudes ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="82" width="41" height="20" uuid="3f9caa65-cf2c-4b5c-b350-3ca162c75335"/>
+				<text><![CDATA[Se han]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="36" y="82" width="68" height="20" uuid="1dfcc94b-12b9-4cdb-8dd1-f1a39fb3bf6a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{solicitudproducto_estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31">
+			<line>
+				<reportElement x="-20" y="2" width="595" height="1" forecolor="#666666" uuid="d1499c41-967a-481c-b825-0f99a8a11a43"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="3" width="100" height="28" uuid="80b0ce52-9a8d-435b-995b-371f6c4a9afa"/>
+				<textElement>
+					<font size="17" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="3" width="100" height="28" uuid="fc0e1252-2546-40e9-afdc-9dcbf2c1ae33"/>
+				<textElement>
+					<font size="17" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="3" width="158" height="28" uuid="fe5e47e8-3bef-49c6-9f2c-d54a26fdb365"/>
+				<textElement>
+					<font size="17" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="374" y="2" width="74" height="28" uuid="828c7b00-dfa4-4ec6-9e91-912b62ab70ab"/>
+				<textElement>
+					<font size="17" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="453" y="3" width="74" height="28" uuid="95b7dec0-41c2-4da3-a2cd-9d3e13e7a8fb"/>
+				<textElement>
+					<font size="17" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="11" width="555" height="1" uuid="9eb7161f-be84-4091-a4e4-de9df132f300"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="11" width="43" height="20" uuid="b9826990-2095-4864-a893-75073f29ce8e"/>
+				<textFieldExpression><![CDATA[$F{usuarios_nombre_razon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="12" width="57" height="20" uuid="3440e65b-c98a-46e7-b8ac-9847531503f5"/>
+				<textFieldExpression><![CDATA[$F{usuarios_apellido1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="12" width="100" height="20" uuid="a0c1b876-387d-415c-97e7-ef73cd90f681"/>
+				<textFieldExpression><![CDATA[$F{solicitudproducto_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="12" width="158" height="20" uuid="67ec1e06-68fa-4b87-9304-a338fab245bc"/>
+				<textFieldExpression><![CDATA[$F{solicitudproducto_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="12" width="56" height="20" uuid="4c8a221f-5b98-4862-bf4b-12eaa5680b1f"/>
+				<textFieldExpression><![CDATA[$F{solicitudproducto_fechaPedido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="12" width="72" height="20" uuid="25d9ddbe-7918-4383-b361-19cdb364dd6d"/>
+				<textFieldExpression><![CDATA[$F{solicitudproducto_presupuestoDis}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="732ad297-ea84-4c40-b12f-1ee975a146c9"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="b79092a3-c37d-4446-9551-06329b534490"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="4" width="100" height="13" uuid="06915a07-e07b-4fd4-b4e0-4107699efef8"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TrekBusi]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

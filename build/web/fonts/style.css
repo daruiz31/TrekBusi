@@ -1,0 +1,39 @@
+html{
+    font-family: 'Raleway', sans-serif;
+}
+@font-face {
+    font-family: 'icomoon';
+    src:url('icomoon.eot?bnabu8');
+    src:url('icomoon.eot?bnabu8#iefix') format('embedded-opentype'),
+        url('icomoon.ttf?bnabu8') format('truetype'),
+        url('icomoon.woff?bnabu8') format('woff'),
+        url('icomoon.svg?bnabu8#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    text-decoration: none;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-trash-can:before {
+    content: "\e900";
+}
+.icon-menu:before {
+    content: "\e901";
+}
+
+
